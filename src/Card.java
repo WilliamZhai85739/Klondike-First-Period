@@ -11,4 +11,29 @@ public class Card implements Drawable, Updateable{
     Showing = false;
     Selected = false;
   }
+  public int getValue() {
+    return Value;
+  }
+  public int getSuit() {
+    return Suit;
+  }
+  public boolean getShowing() {
+    return Showing;
+  }
+  public boolean getSelected() {
+    return Selected;
+  }
+  public void Select() {
+    Select = true;
+  }
+  public void Deselect() {
+    Select = false;
+  }
+  public int compareTo(card C) {
+    if(c.getValue() = Value + 1) {
+      return true;
+    }
+    else {
+      return false;
+    }
 }
