@@ -29,7 +29,7 @@ public class Card implements Drawable, Updateable{
   public void Deselect() {
     Select = false;
   }
-  public int compareTo(card C) {
+  public boolean compareTo(card C) {
     if(c.getValue() = Value + 1) {
       return true;
     }
