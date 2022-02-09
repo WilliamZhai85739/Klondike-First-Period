@@ -5,6 +5,7 @@ public class Card implements Drawable, Updateable{
   private int Suit;
   private boolean Showing;
   private boolean Selected;
+  public 
   public Card(int v, int s) {
     Value = v;
     Suit = s;
