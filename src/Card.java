@@ -25,13 +25,13 @@ public class Card implements Drawable, Updateable{
     return Selected;
   }
   public void Select() {
-    Select = true;
+    Selected = true;
   }
   public void Deselect() {
-    Select = false;
+    Selected = false;
   }
-  public boolean compareTo(card C) {
-    if(c.getValue() = Value + 1) {
+  public boolean compareTo(Card c) {
+    if(c.getValue() == Value + 1) {
       return true;
     }
     else {
