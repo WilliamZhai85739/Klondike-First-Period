@@ -36,4 +36,5 @@ public class Card implements Drawable, Updateable{
     else {
       return false;
     }
+  }
 }
