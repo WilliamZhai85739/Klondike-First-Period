@@ -1,4 +1,6 @@
 
+import java.awt.*;
+import java.util.*;
 /** A Pile is a collection of cards.  This needs to be
  * Drawable because it will be shown on the GUI. Put code
  * here that ALL Piles share.  The ways in which Piles are 
@@ -6,9 +8,15 @@
  * be implemented here.  Updateable may have empty implementation.
  * You WILL write subclasses of Pile
  */
-public abstract class Pile implements Drawable, Updateable {
+public abstract class Pile{//} implements Drawable, Updateable {
     
     public abstract boolean canAddCard(Card c);
-    private ArrayList<Card> pile;
+    public ArrayList<Card> x;
+    public void draw(Graphics g, int x, int y) {
+      
+      
+    }
+    void update(ActionEvent a);
     
 }
+
