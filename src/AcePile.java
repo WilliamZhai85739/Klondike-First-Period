@@ -16,15 +16,15 @@ public class AcePile extends Pile {
   }
   public void draw(Graphics g, int x, int y) {
     if(pile.size() > 0) {
-      pile.get(1).draw(g, x, y);
+      pile.get(0).draw(g, x, y);
     }
   }
   public void update(ActionEvent a) {
 
   }
   public boolean canAddCard(Card c) {
-    if(c.getSuit() == pile.get(1).getSuit()) {
-      if(c.getValue() == pile.get(1).getValue()){
+    if(c.getSuit() == pile.get(0).getSuit()) {
+      if(c.getValue() == pile.get(0).getValue()){
         pile.add(0, c);
         return true;
       } 
