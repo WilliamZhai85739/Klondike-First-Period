@@ -18,15 +18,20 @@ public class Card implements Drawable, Updateable{
     private boolean Showing;
     private boolean Selected;
     private Image Spritesheet;
-    private Image drawThis;
-    private int width = 71;
-    private int height = 96;
+    private Image front;
+    private static Image back;
+    private static int width = 71;
+    private static int height = 96;
     public void draw(Graphics g) {
       
     }
     public void draw(Graphics g, int x, int y) {
-      drawThis = ((BufferedImage)Spritesheet).getSubimage((Value-1)*width,(Suit-1)*height,width,height);
-      g.drawImage(drawThis, x, y, null);
+      if(Showing) {
+        g.drawImage(front, x, y, null);
+      }
+      else {
+        g.drawImage(back, x, y, null);
+      }
     }
     public void update(ActionEvent a) {
         
@@ -36,6 +41,9 @@ public class Card implements Drawable, Updateable{
       Suit = s;
       Showing = false;
       Selected = false;
+      OpenImage();
+    }
+    public void OpenImage() {
       if(Spritesheet == null) {
         try {
           File f = new File("../images/AllCards.png");
@@ -44,6 +52,8 @@ public class Card implements Drawable, Updateable{
           e.printStackTrace();
         }
       }
+      front = ((BufferedImage)Spritesheet).getSubimage((Value-1)*width,(Suit-1)*height,width,height);
+      back = ((BufferedImage)Spritesheet).getSubimage((0)*width,(4)*height,width,height);
     }
     public int getValue() {
       return Value;
