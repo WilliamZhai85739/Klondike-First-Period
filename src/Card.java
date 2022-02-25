@@ -22,16 +22,25 @@ public class Card implements Drawable, Updateable{
     private static Image back;
     private static int width = 71;
     private static int height = 96;
+    private int cardX, cardY;
     public void draw(Graphics g) {
       
     }
     public void draw(Graphics g, int x, int y) {
+      cardX = x;
+      cardY = y;
       if(Showing) {
         g.drawImage(front, x, y, null);
       }
       else {
         g.drawImage(back, x, y, null);
       }
+    }
+    public boolean contains(int clickX, int clickY) {
+      if(clickX <= cardX + width && clickX >= cardX && clickY >= cardY && clickY <= cardY + height) {
+        return true;
+      }
+      return false;
     }
     public void update(ActionEvent a) {
         
@@ -42,6 +51,8 @@ public class Card implements Drawable, Updateable{
       Showing = false;
       Selected = false;
       OpenImage();
+      cardX = 0;
+      cardY = 0;
     }
     public void OpenImage() {
       if(Spritesheet == null) {
