@@ -22,6 +22,9 @@ public class AcePile extends Pile {
   public void update(ActionEvent a) {
 
   }
+  public Card firstCard() {
+    return pile.get(0);
+  }
   public boolean canAddCard(Card c) {
     if(pile.size() > 0) {
       if(c.getSuit() == pile.get(0).getSuit()) {
