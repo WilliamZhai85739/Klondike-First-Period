@@ -24,7 +24,7 @@ public class AcePile extends Pile {
   }
   public boolean canAddCard(Card c) {
     if(c.getSuit() == pile.get(0).getSuit()) {
-      if(c.getValue() == pile.get(0).getValue()){
+      if(c.getValue() == pile.get(0).getValue() + 1){
         pile.add(0, c);
         return true;
       } 
