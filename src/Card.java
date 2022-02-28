@@ -92,4 +92,14 @@ public class Card implements Drawable, Updateable{
         return false;
       }
     }
+    public boolean withinBounds(int x, int y){
+      if(x >= cardX && x <= cardX + width && y >= cardY && y <= cardY + height) {
+        return true;
+      }
+      return false;
+    }
+    public String toString() {
+      String s = "";
+      return s
+    }
   }
