@@ -21,4 +21,10 @@ public abstract class Pile implements Drawable, Updateable {
     public void update(ActionEvent a){
 
     }
+    public Card firstCard() {
+        return pile.get(0);
+    }
+    public int pileSize() {
+        return pile.size();
+    }
 }
