@@ -42,4 +42,7 @@ public class AcePile extends Pile {
     }
     return false;
   }
+  public int pileSize() {
+    return pile.size();
+  }
 }
