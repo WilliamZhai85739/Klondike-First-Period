@@ -84,6 +84,12 @@ public class Card implements Drawable, Updateable{
     public void Deselect() {
       Selected = false;
     }
+    public void Show() {
+      Showing = true;
+    }
+    public void Hide() {
+      Showing = false;
+    }
     public boolean compareTo(Card c) {
       if(c.getValue() == Value + 1) {
         return true;
@@ -94,12 +100,13 @@ public class Card implements Drawable, Updateable{
     }
     public boolean withinBounds(int x, int y){
       if(x >= cardX && x <= cardX + width && y >= cardY && y <= cardY + height) {
+        System.out.println("you clicked on " + toString());
         return true;
       }
       return false;
     }
     public String toString() {
       String s = "";
-      return s
+      return s;
     }
   }
