@@ -14,10 +14,21 @@ public class GameBoard implements Drawable, Updateable {
 	Image testImage, backImage;
 	public static final int OFFSET_X = 40, OFFSET_Y = 20;
 	
-	 
+	private boolean firstClick;
 	private int numdraws=0;
-	
-	
+	private AcePile ace1;
+	private AcePile ace2;
+	private AcePile ace3;
+	private AcePile ace4;
+	private BottomPile bottom1;
+	private BottomPile bottom2;
+	private BottomPile bottom3;
+	private BottomPile bottom4;
+	private BottomPile bottom5;
+	private BottomPile bottom6;
+	private BottomPile bottom7;
+	private DrawPile draw;
+	 
 	
 	public GameBoard() {
 		try {
@@ -41,8 +52,10 @@ public class GameBoard implements Drawable, Updateable {
 		g.drawImage(testImage, 30, 80, null);
 		g.drawImage(backImage, 100, 80, null);
 		g.drawImage(backImage, 105, 100, null);
+		Card tester = new Card(0,0);
+		tester.draw(g, 200, 400);
 	}
-
+	
 
 	/**
 	 * This method is called by the game when a click has been made 
@@ -54,10 +67,50 @@ public class GameBoard implements Drawable, Updateable {
 	public void justClicked(MouseEvent me) {
 		Point p = me.getPoint();
 		System.out.println("You just clicked "+p);
-
+		int x = me.getX(), y = me.getY();
+		if(firstClick) {
+			firstClick(x,y);
+		}
+		else {
+			secondClick(x,y);
+		}
 
 	}
-
+	public void firstClick(int x, int y) {
+		
+	}
+	public void secondClick(int x, int y) {
+		
+	}
+	public boolean checkAce(int x, int y) {
+		if(ace1.pileSize() > 0) {
+			if(ace1.firstCard().withinBounds(x, y)) {
+				return true;
+			}
+		}
+		if(ace2.pileSize() > 0) {
+			if(ace2.firstCard().withinBounds(x, y)) {
+				return true;
+			}
+		}
+		if(ace3.pileSize() > 0) {
+			if(ace3.firstCard().withinBounds(x, y)) {
+				return true;
+			}
+		}
+		if(ace4.pileSize() > 0) {
+			if(ace4.firstCard().withinBounds(x, y)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public boolean checkBottom(int x, int y) {
+		return false;
+	}
+	public boolean checkDraw(int x, int y) {
+		return false;
+	}
 	@Override
 	// this update will be called each time the timer in the KlondikeGame
 	// goes off.  This will be convenient for animating.
