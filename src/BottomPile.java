@@ -15,7 +15,13 @@ public class BottomPile extends Pile {
     }
     public void draw(Graphics g, int x, int y) {
         if(pile.size() > 0) {
-            pile.get(0).draw(g, x, y);
+            int drawX = x;
+            int drawY = y;
+            for(int i = pile.size() - 1 ; i > 0; i--) {
+                pile.get(i).draw(g, drawX, drawY);
+                drawX = drawX + 20;
+            }
+            
         }
     }
     public void update(ActionEvent a) {
