@@ -30,9 +30,11 @@ public class Card implements Drawable, Updateable{
       cardX = x;
       cardY = y;
       if(Showing) {
+        System.out.println(front);
         g.drawImage(front, x, y, null);
       }
       else {
+        System.out.println(back);
         g.drawImage(back, x, y, null);
       }
     }
@@ -57,13 +59,14 @@ public class Card implements Drawable, Updateable{
     public void OpenImage() {
       if(Spritesheet == null) {
         try {
-          File f = new File("../images/AllCards.png");
+          File f = new File("images/cards/AllCards.png");
           Spritesheet = ImageIO.read(f);
+          System.out.println(Spritesheet);
         } catch (IOException e) {
           e.printStackTrace();
         }
       }
-      front = ((BufferedImage)Spritesheet).getSubimage((Value-1)*width,(Suit-1)*height,width,height);
+      front = ((BufferedImage)Spritesheet).getSubimage((Value)*width,(Suit)*height,width,height);
       back = ((BufferedImage)Spritesheet).getSubimage((0)*width,(4)*height,width,height);
     }
     public int getValue() {
@@ -106,7 +109,10 @@ public class Card implements Drawable, Updateable{
       return false;
     }
     public String toString() {
-      String s = "";
+      String s = "You just clicked on the ";
+      String[] values = new String[]{"ace","2","3","4","5","6","7","8","9","10","J","Q","K"};
+      String[] suits = new String[]{"Spades","Hearts","Clubs","Diamonds"};
+      s += values[Value] + " of " + suits[Suit];
       return s;
     }
   }
